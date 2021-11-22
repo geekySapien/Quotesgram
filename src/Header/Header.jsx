@@ -5,8 +5,8 @@ export default function Header() {
     return (
         <>
             <div className="mt-8 ">
-                <div className="flex flex-col items-center headline text-white relative">
-                    <span className="text-xl absolute top-10">
+                <div className="flex flex-col items-center justify-center headline text-white relative">
+                    <span className="text-3xl absolute top-10">
                         Feel, Heal, Express, Embrace
                     </span>
                     <span className="text-5xl absolute top-20">
