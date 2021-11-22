@@ -4,7 +4,7 @@ import { BsInstagram, BsTwitter, BsPinterest, BsSearch } from 'react-icons/bs';
 
 export default function Navbar() {
     return (
-        <div className="h-12 sticky top-3 flex items-center top">
+        <div className="h-12 sticky top-0 flex items-center top">
             <div className="hidden md:block  w-4/12">
                 <div className="hidden md:flex justify-center gap-3 ">
                     <BsInstagram className="w-8 h-8 text-instagramPink" />
