@@ -2,7 +2,7 @@
     width:380px;
 }
 
-.postCategoriesP{
+.postCategories{
      font-family: 'Varela Round', sans-serif;
 }
 
@@ -21,4 +21,8 @@
     display:-webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
+    
+        font-family: 'Lora',
+            serif;
+    
 }
