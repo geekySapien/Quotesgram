@@ -1,6 +1,6 @@
 import React from 'react';
 import './post.css';
-import cover from './../assets/sunset.jfif';
+import cover from './../../assets/sunset.jfif';
 
 export default function Post() {
     return (

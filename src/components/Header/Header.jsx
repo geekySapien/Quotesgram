@@ -1,5 +1,5 @@
 import React from 'react';
-import cover from './../assets/quotesToRemember.png';
+import cover from './../../assets/quotesToRemember.png';
 import './Header.css';
 export default function Header() {
     return (
