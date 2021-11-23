@@ -6,7 +6,7 @@ export default function SinglePostComponent() {
     return (
         <>
             <div className="mt-2 mr-6 ml-6 ">
-                <div className="w-full h-full imageContainer ">
+                <div className="w-full h-full  ">
                     <img
                         src={cover}
                         className="w-full h-full rounded-lg object-cover"

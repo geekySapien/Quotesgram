@@ -5,10 +5,10 @@ import cover from './../../assets/quotesToRemember.png';
 export default function WritePage() {
     return (
         <>
-            <div className="uploadPostContainer  relative pt-12 ">
+            <div className="  relative pt-12 ">
                 <img src={cover} alt="img" className="ml-36 rounded-lg object-cover  mb-4" />
-                <form className="uploadPostForm ">
-                    <div className="uploadGroup  flex align-center justify-center gap-5">
+                <form className=" ">
+                    <div className="  flex align-center justify-center gap-5">
                         <label for="fileInput">
                             <RiImageAddFill className="w-8 h-8 rounded-full cursor-pointer " />
                         </label>
@@ -25,7 +25,7 @@ export default function WritePage() {
                             autoFocus={true}
                         />
                     </div>
-                    <div className="uploadGroup ml-36 mt-4">
+                    <div className=" ml-36 mt-4">
                         <textarea
                             placeholder="Tell your story associated with this quote..."
                             type="text"
@@ -35,7 +35,7 @@ export default function WritePage() {
                     <button className="writeSubmit ml-60 absolute top-20 right-60 text-white cursor-pointer bg-blue-500 p-2 rounded-xl border-none text-lg font-semibold">
                         Publish
                     </button>
-                </form>
+                </form>                                              
             </div>
         </>
     );

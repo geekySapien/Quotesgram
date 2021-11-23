@@ -5,11 +5,11 @@ import Sidebar from '../../components/SideBar/Sidebar'
 export default function SinglePost() {
     return (
         <>
-            <div className=" md:flex ">
-                <div className="w-9/12">
+            <div className="block md:flex ">
+                <div className="md:w-9/12">
                     <SinglePostComponent/>
                 </div>
-                <div className="w-3/12">
+                <div className="md:w-3/12">
                     <Sidebar/>
                 </div>
             </div>
