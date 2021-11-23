@@ -14,7 +14,8 @@ module.exports = {
             red: colors.rose,
             yellow: colors.amber,
             blue: colors.blue,
-            green:colors.emerald
+            green: colors.emerald,
+            purple:colors.violet,
         },
         extend: {
             screens: {

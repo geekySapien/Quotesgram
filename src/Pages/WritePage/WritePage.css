@@ -1,0 +1,16 @@
+
+
+.writeInput{
+    border:none;
+    font-size: 28px;
+    
+    width: 70vw;
+}
+
+.writeInput:focus{
+    outline: none;
+}
+.writeText{
+    font-size:20px;
+    height:100vw;
+}
