@@ -1,6 +1,6 @@
 import React from 'react';
 import './LoginComponent.css';
-
+import { Link } from 'react-router-dom';
 export default function LoginComponent() {
     return (
         <>
@@ -27,7 +27,7 @@ export default function LoginComponent() {
                 <span className="mt-6 text-white text-xl textStyle ">
                     New Quotoholic?
                     <button className="ml-4 border-b-2 border-white text-white hover:border-gray-400 text-xl textStyle">
-                        Create Account
+                      <Link to="/register">   Create Account </Link>
                     </button>
                 </span>
             </div>

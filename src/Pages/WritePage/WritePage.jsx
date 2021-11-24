@@ -22,7 +22,7 @@ export default function WritePage() {
                             type="text"
                             placeholder="Quote"
                             className="writeInput"
-                            autoFocus={true}
+                            
                         />
                     </div>
                     <div className=" ml-36 mt-4">
