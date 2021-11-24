@@ -1,0 +1,17 @@
+.textStyle{
+    font-family:'Josefin Sans',
+    sans-serif;
+}
+
+input{
+    border:none;
+    border-bottom: 2px solid lightslategrey;
+    font-size: 20px;
+      font-family: 'Lora',
+      serif;
+}
+
+input:focus{
+    
+    outline:none;
+}
