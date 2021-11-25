@@ -8,7 +8,7 @@ import './HomePage.css';
 export default function HomePage() {
     return (
         <>
-            
+            <Header/>
                 <div className="block md:flex">
                     <div className="md:w-9/12">
                         <Posts />

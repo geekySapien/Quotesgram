@@ -5,7 +5,7 @@ import cover from './../../assets/sunset.jfif';
 export default function Post() {
     return (
         <>
-            <div className=" mt-6 mr-12 ml-12 mb-6  container">
+            <div className=" mt-6 mr-12 ml-12 mb-6 container">
                 <div className=" w-full ">
                     <img
                         src={cover}

@@ -1,14 +1,19 @@
 .writeInput{
     border:none;
     font-size: 28px;
-    
+    font-family:'Josefin Sans',
+    sans-serif;
     width: 70vw;
+    
 }
 
 .writeInput:focus{
     outline: none;
+    color:black;
 }
 .writeText{
     font-size:20px;
     height:100vw;
+    font-family: 'Lora',
+    serif;
 }

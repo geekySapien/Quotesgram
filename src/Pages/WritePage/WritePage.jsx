@@ -8,9 +8,9 @@ export default function WritePage() {
             <div className="  relative pt-12 ">
                 <img src={cover} alt="img" className="ml-36 rounded-lg object-cover  mb-4" />
                 <form className=" ">
-                    <div className="  flex align-center justify-center gap-5">
+                    <div className="  flex items-center justify-center gap-5">
                         <label for="fileInput">
-                            <RiImageAddFill className="w-8 h-8 rounded-full cursor-pointer " />
+                            <RiImageAddFill className="w-9 h-9 rounded-full cursor-pointer " />
                         </label>
                         <input
                             type="file"
@@ -21,7 +21,7 @@ export default function WritePage() {
                         <input
                             type="text"
                             placeholder="Quote"
-                            className="writeInput"
+                            className=" text-black writeInput"
                             
                         />
                     </div>
@@ -32,7 +32,7 @@ export default function WritePage() {
                             className="writeInput writeText"
                         />
                     </div>
-                    <button className="writeSubmit ml-60 absolute top-20 right-60 text-white cursor-pointer bg-blue-500 p-2 rounded-xl border-none text-lg font-semibold">
+                    <button className=" absolute top-20 right-60 text-white cursor-pointer bg-blue-500 p-2 rounded-xl border-none text-lg font-semibold">
                         Publish
                     </button>
                 </form>                                              
