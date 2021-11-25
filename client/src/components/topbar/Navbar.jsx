@@ -3,7 +3,7 @@ import './Navbar.css';
 import { BsInstagram, BsTwitter, BsPinterest, BsSearch } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 export default function Navbar() {
-    const user = false;
+    const user = true;
     return (
         <div className="h-12 sticky top-0 flex items-center top">
             <div className="hidden md:block  w-4/12">
