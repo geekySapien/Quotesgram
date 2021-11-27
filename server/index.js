@@ -5,6 +5,8 @@ const mongoose = require("mongoose");
 
 //Importing Routes
 const authRoute = require("./routes/auth");
+const userRoute = require('./routes/users');
+const postRoute = require('./routes/posts');
 
 //DB connection
 
@@ -17,6 +19,8 @@ const app = express();
 app.use(express.json());
 
 app.use("/api/auth", authRoute);
+app.use("/api/users", userRoute);
+app.use('/api/posts', postRoute);
 
 app.listen(5000, () => {
   console.log("Server is up and running😉");
