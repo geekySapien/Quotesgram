@@ -12,12 +12,7 @@ Parameter:      none
  */
 
 router.post("/", async (req, res) => {
-      const newPost =  new Post({
-        title: req.body.title,
-        desc: req.body.desc,
-        username: req.body.username,
-        categories: req.body.categories,
-      });
+      const newPost =  new Post(req.body);
     try {
       
         const post = await newPost.save();

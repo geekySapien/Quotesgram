@@ -1,15 +1,16 @@
 import React from 'react';
 import Post from '../Post/Post';
 
-export default function Posts() {
+export default function Posts({posts}) {
     return (
         <>
             <div className="flex flex-wrap ">
-                <Post />
-                <Post />
-                <Post />
-                <Post />
-                <Post />
+                {
+                    posts.map(p => (
+                        <Post post={p}/>
+                    ))
+                }
+          
             </div>
         </>
     );

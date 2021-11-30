@@ -3,9 +3,9 @@ import './Navbar.css';
 import { BsInstagram, BsTwitter, BsPinterest, BsSearch } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 export default function Navbar() {
-    const user = true;
+    const user = false;
     return (
-        <div className="h-12 sticky top-0 flex items-center top">
+        <div className="h-12 fixed w-full top-0 flex items-center top">
             <div className="hidden md:block  w-4/12">
                 <div className="hidden md:flex justify-center gap-3 ">
                     <BsInstagram className="w-8 h-8 text-instagramPink" />

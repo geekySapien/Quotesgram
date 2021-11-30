@@ -1,9 +1,13 @@
-import React from 'react';
+import { useEffect} from 'react';
+import { useLocation } from 'react-router';
 import cover from '../../assets/quotesToRemember.png';
 import { MdEdit, MdDelete } from 'react-icons/md';
 import './SinglePostComponent.css';
+import axios from 'axios';
 export default function SinglePostComponent() {
+    
     return (
+        
         <>
             <div className="mt-2 mr-6 ml-6 ">
                 <div className="w-full h-full  ">
