@@ -91,14 +91,14 @@ Access:         Public
 Parameter:      id
 */
 
-// router.get("/:id", async (req, res) => {
-//     try {
-//         const post = await Post.findById(req.params.id);
-//         return res.status(200).json({ message: "Post Retrieved Successfully", post: post });
-//     } catch (err) {
-//         return res.status(500).json(err);
-//     }
-// })
+router.get("/:id", async (req, res) => {
+    try {
+        const post = await Post.findById(req.params.id);
+        return res.status(200).json({ message: "Post Retrieved Successfully", post: post });
+    } catch (err) {
+        return res.status(500).json(err);
+    }
+})
 
 
 /*

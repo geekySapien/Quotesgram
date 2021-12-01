@@ -18,17 +18,17 @@ export default function Post({post}) {
                 <div className="flex flex-col items-center ">
                     <div className=" text-yellow-300 cursor-pointer text-sm postCategories">
                         {post.categories.map((category) => (
-                            <span className="pr-4 ">{category}</span>
+                            <span className="pr-4 text-yellow-400 font-semibold">{category}</span>
                         ))}
                         <Link to={`/post/${post._id}`}>
-                            <h1 className="text-xl font-bold mt-4 cursor-pointer postTitle">
+                            <h1 className="text-xl font-bold mt-4 cursor-pointer postTitle text-black">
                                 {post.title}
                             </h1>
                         </Link>
                     </div>
 
                     <p className="leading-6 postDesc">{post.desc}</p>
-                    <span className="text-gray-300 italic timestamp">
+                    <span className="text-gray-500 italic timestamp">
                         {new Date(post.createdAt).toDateString()}
                     </span>
                 </div>

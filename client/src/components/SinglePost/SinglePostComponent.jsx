@@ -1,24 +1,41 @@
-import { useEffect} from 'react';
-import { useLocation } from 'react-router';
+import { useEffect, useState} from 'react';
+
 import cover from '../../assets/quotesToRemember.png';
 import { MdEdit, MdDelete } from 'react-icons/md';
 import './SinglePostComponent.css';
 import axios from 'axios';
+import { useLocation } from 'react-router';
 export default function SinglePostComponent() {
-    
+    const location = useLocation();
+    // console.log(location)
+    const path = location.pathname.split("/")[2];
+   // console.log(path);
+    const [post, setPost] = useState({});
+    useEffect(() => {
+        const fetchPost = async () => {
+            const res = await axios.get('/api/posts/' + path);
+            console.log(res);
+            setPost(res.data.post);
+            console.log(post);
+            //console.log(post.title);
+        }
+       
+        fetchPost();
+    },[path])
     return (
-        
         <>
             <div className="mt-2 mr-6 ml-6 ">
-                <div className="w-full h-full  ">
-                    <img
-                        src={cover}
-                        className="w-full h-full rounded-lg object-cover"
-                    />
-                </div>
-                <div className="flex justify-between">
+                {post.photo && (
+                    <div className="w-full h-full  ">
+                        <img
+                            src={post.photo}
+                            className="w-full h-full rounded-lg object-cover"
+                        />
+                    </div>
+                )}
+                <div className="flex justify-between mt-12">
                     <h1 className="text-2xl font-bold mt-4 postTitle ">
-                        Lorem ipsum dolor sit
+                        {post.title}
                     </h1>
                     <div className="flex gap-3 icons ">
                         <MdEdit className="mt-4 w-6 h-6 cursor-pointer text-green-600" />
@@ -27,36 +44,12 @@ export default function SinglePostComponent() {
                 </div>
                 <div className="flex justify-between mt-3">
                     <p className="text-lg">
-                        Author: <span className="text-lg font-bold">Riya</span>
+                        Author: <span className="text-lg font-bold">{post.username}</span>
                     </p>
-                    <p className="text-lg italic">1 hour ago</p>
+                    <p className="text-lg italic">{ new Date(post.createdAt).toDateString()}</p>
                 </div>
                 <div className="postDescription leading-8 mt-5">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Voluptatibus officiis error voluptatum asperiores voluptas,
-                    quas iste, sequi facere ea assumenda voluptates provident
-                    est alias rem deleniti nihil. Quaerat, voluptatibus eos?
-                    Dolores esse dolore necessitatibus aperiam quam recusandae
-                    repellat tempora earum repellendus, accusamus porro corporis
-                    cum soluta quod cupiditate quae laudantium officia
-                    aspernatur! Quis earum fugit porro obcaecati dignissimos
-                    quaerat dicta? Earum similique, sed neque debitis
-                    consequuntur repellat voluptatem repellendus at, maxime odio
-                    repudiandae ad suscipit sint, facere alias illum eveniet
-                    facilis hic eum numquam omnis beatae. Magni consequuntur
-                    reiciendis aliquid? Laudantium quia aspernatur dolorum,
-                    rerum, vitae est inventore laborum perferendis fugiat eaque
-                    natus ratione harum optio sint eveniet veritatis ipsam
-                    consequatur vel, qui repellat molestias facilis esse
-                    quisquam fugit? Suscipit. Necessitatibus, exercitationem.
-                    Cumque alias perferendis nisi deleniti sed nostrum fuga
-                    assumenda delectus aliquam commodi? Amet obcaecati vel neque
-                    illo facere, ullam corrupti molestiae fuga nesciunt dolores
-                    voluptas possimus itaque eum. Quasi quod mollitia magnam
-                    consequatur quis repellendus quaerat aspernatur, delectus
-                    pariatur quam unde animi asperiores placeat accusamus
-                    deleniti fugit, saepe libero! Unde optio facilis eius cumque
-                    officiis perferendis totam voluptatibus!
+                    {post.desc}
                 </div>
             </div>
         </>

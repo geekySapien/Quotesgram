@@ -35,7 +35,7 @@ function App() {
                         element={user ? <Settings /> : <RegisterPage />}
                     />
                     <Route
-                        path="/singlePost/:postId"
+                        path="/post/:postId"
                         element={user ? <SinglePost /> : <RegisterPage />}
                     />
                 </Routes>
