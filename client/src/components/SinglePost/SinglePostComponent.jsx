@@ -1,5 +1,5 @@
-import { useEffect, useState} from 'react';
-
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import cover from '../../assets/quotesToRemember.png';
 import { MdEdit, MdDelete } from 'react-icons/md';
 import './SinglePostComponent.css';
@@ -8,8 +8,8 @@ import { useLocation } from 'react-router';
 export default function SinglePostComponent() {
     const location = useLocation();
     // console.log(location)
-    const path = location.pathname.split("/")[2];
-   // console.log(path);
+    const path = location.pathname.split('/')[2];
+    // console.log(path);
     const [post, setPost] = useState({});
     useEffect(() => {
         const fetchPost = async () => {
@@ -18,10 +18,10 @@ export default function SinglePostComponent() {
             setPost(res.data.post);
             console.log(post);
             //console.log(post.title);
-        }
-       
+        };
+
         fetchPost();
-    },[path])
+    }, [path]);
     return (
         <>
             <div className="mt-2 mr-6 ml-6 ">
@@ -44,9 +44,16 @@ export default function SinglePostComponent() {
                 </div>
                 <div className="flex justify-between mt-3">
                     <p className="text-lg">
-                        Author: <span className="text-lg font-bold">{post.username}</span>
+                        Author:{' '}
+                        <span className="text-lg font-bold">
+                            <Link to={`/?user=${post.username}`}>
+                                {post.username}
+                            </Link>
+                        </span>
                     </p>
-                    <p className="text-lg italic">{ new Date(post.createdAt).toDateString()}</p>
+                    <p className="text-lg italic">
+                        {new Date(post.createdAt).toDateString()}
+                    </p>
                 </div>
                 <div className="postDescription leading-8 mt-5">
                     {post.desc}

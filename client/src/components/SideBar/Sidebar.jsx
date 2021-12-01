@@ -1,6 +1,18 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Sidebar.css';
+import axios from 'axios'
 export default function Sidebar() {
+    const [categories, setCategories] = useState([]);
+    useEffect(() => {
+        const fetchCategories = async () => {
+            const res = await axios.get('/api/categories');
+            //console.log(res);
+            setCategories(res.data.categories);
+            //console.log(categories)
+        }
+        fetchCategories();
+    }, [])
     return (
         <>
             <div className="flex flex-col mt-8 gap-3">
@@ -28,14 +40,13 @@ export default function Sidebar() {
                         Categories
                     </h2>
                     <ul className="listItems cursor-pointer">
-                        <li className="inline-block w-1/2 py-2 px-3">
-                            Programming
-                        </li>
-                        <li className="inline-block w-1/2 py-2 px-3">Tech</li>
-                        <li className="inline-block w-1/2 py-2 px-3">Life</li>
-                        <li className="inline-block w-1/2 py-2 px-3">
-                            Finance
-                        </li>
+                        {categories.map((category) => (
+                            <Link to={`/?cat=${category.name}`}>
+                                <li className="inline-block w-1/2 py-2 px-3">
+                                    {category.name}
+                                </li>
+                            </Link>
+                        ))}
                     </ul>
                 </div>
             </div>

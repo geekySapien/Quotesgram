@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './post.css';
 import cover from './../../assets/sunset.jfif';
-import { Link } from 'react-router-dom';
+
 export default function Post({post}) {
     return (
         <>
@@ -18,7 +19,11 @@ export default function Post({post}) {
                 <div className="flex flex-col items-center ">
                     <div className=" text-yellow-300 cursor-pointer text-sm postCategories">
                         {post.categories.map((category) => (
-                            <span className="pr-4 text-yellow-400 font-semibold">{category}</span>
+                            <Link to={`/?cat=${category}`}>
+                                <span className="pr-4 text-yellow-400 font-semibold">
+                                    {category}
+                                </span>
+                            </Link>
                         ))}
                         <Link to={`/post/${post._id}`}>
                             <h1 className="text-xl font-bold mt-4 cursor-pointer postTitle text-black">
