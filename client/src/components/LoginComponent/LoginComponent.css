@@ -6,7 +6,7 @@
 input{
     background: transparent;
     padding: 10px;
-  
+  color: rgb(228, 235, 241)
 
 }
 
@@ -16,7 +16,7 @@ input:focus{
 
 .textStyle{
   font-family: 'Lora', serif;
-    
+  color: rgb(228, 235, 241)
 }
 
 /* .loginBtn{
