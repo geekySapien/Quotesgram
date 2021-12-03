@@ -22,13 +22,14 @@ export default function SinglePostComponent() {
 
         fetchPost();
     }, [path]);
+const PF = 'http://localhost:5000/images/';
     return (
         <>
             <div className="mt-2 mr-6 ml-6 ">
                 {post.photo && (
                     <div className="w-full h-full  ">
                         <img
-                            src={post.photo}
+                            src={PF+post.photo}
                             className="w-full h-full rounded-lg object-cover"
                         />
                     </div>

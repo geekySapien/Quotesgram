@@ -3,6 +3,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 const mongoose = require("mongoose");
 const multer = require("multer");
+const path = require('path');
 
 //Importing Routes
 const authRoute = require("./routes/auth");
@@ -23,12 +24,14 @@ mongoose
 const app = express();
 app.use(express.json());
 
+app.use("/images", express.static(path.join(__dirname, "/images")));
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "images");
   },
   filename: (req, file, cb) => {
-    cb(null, "test1.jpg");
+    cb(null, req.body.name);
   },
 });
 
