@@ -17,12 +17,13 @@ export default function LoginComponent() {
              username, password
             })
             //console.log(res);
+            //console.log(res.data.user);
             dispatch({ type: "LOGIN_SUCCESS", payload: res.data.user });
         } catch (err) {
             dispatch({ type: "LOGIN_FAILURE" });
            // console.log("Login failed");
         }
-        console.log(user);
+        //console.log(user);
     }
     return (
         <>
@@ -51,10 +52,11 @@ export default function LoginComponent() {
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
-                    <div className="flex justify-around text-white mt-6 ">
+                    <div className="flex justify-around text-white mt-6 loginBtn">
                         <button
                             className="font-bold border-2 border-white hover:border-gray-400  p-2 rounded-lg italic text-xl textStyle "
                             type="submit"
+                           
                         >
                             Login
                         </button>

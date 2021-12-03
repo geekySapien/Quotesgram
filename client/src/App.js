@@ -6,10 +6,12 @@ import Settings from './Pages/Settings/Settings';
 import RegisterPage from './Pages/LoginRegister/RegisterPage';
 import LoginPage from './Pages/LoginRegister/LoginPage';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { Context } from './context/Context';
 
 
 function App() {
-    const user = false;
+    const { user } = useContext(Context);
     return (
         <>
             <BrowserRouter>

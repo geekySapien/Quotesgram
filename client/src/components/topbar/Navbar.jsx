@@ -1,9 +1,14 @@
-import React from 'react';
+import {useContext} from 'react';
 import './Navbar.css';
 import { BsInstagram, BsTwitter, BsPinterest, BsSearch } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
+import { Context } from '../../context/Context';
 export default function Navbar() {
-    const user = false;
+    const { user , dispatch} = useContext(Context);
+
+    const handleLogout = async (e) => {
+        dispatch({ type: "LOGOUT" });
+    }
     return (
         <div className="h-12 fixed w-full top-0 flex items-center top">
             <div className="hidden md:block  w-4/12">
@@ -27,7 +32,7 @@ export default function Navbar() {
                     <div className="text-gray-500">
                         <Link to="/write">WRITE</Link>
                     </div>
-                    <div className="text-gray-500">
+                    <div className="text-gray-500" onClick={handleLogout}>
                         <Link to="/">{user && 'LOGOUT'}</Link>
                     </div>
                 </div>
