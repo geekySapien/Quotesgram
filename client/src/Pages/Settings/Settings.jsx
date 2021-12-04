@@ -6,7 +6,7 @@ export default function Settings() {
     return (
         <>
             <div className="block md:flex">
-                <div className="md:w-9/12 p-12">
+                <div className="md:w-9/12 p-12 textStyle">
                     <div className="flex items-center justify-between mb-4">
                         <span className="md:text-xl text-red-400 font-bold cursor-pointer">
                             Update your Account
@@ -18,7 +18,7 @@ export default function Settings() {
                     <form className="flex flex-col gap-5">
                         <label
                             for=""
-                            className="text-lg text-gray-700 textStyle font-semibold"
+                            className="text-lg text-gray-700  font-semibold"
                         >
                             Profile Picture
                         </label>
@@ -36,21 +36,30 @@ export default function Settings() {
                                 type="file"
                                 id="fileInput"
                                 style={{ display: 'none' }}
+                                className="text-black"
                             />
                         </div>
 
-                        <label className="text-lg text-gray-700 textStyle font-semibold">
+                        <label className="text-lg text-gray-700  font-semibold">
                             Username
                         </label>
-                        <input type="text" placeholder="riya" />
-                        <label className="text-lg text-gray-700 textStyle font-semibold">
+                        <input
+                            type="text"
+                            placeholder="riya"
+                            className="text-black"
+                        />
+                        <label className="text-lg text-gray-700  font-semibold">
                             Email
                         </label>
-                        <input type="email" placeholder="riya1602@gmail.com" />
-                        <label className="text-lg text-gray-700 textStyle font-semibold">
+                        <input
+                            type="email"
+                            placeholder="riya1602@gmail.com"
+                            className="text-black"
+                        />
+                        <label className="text-lg text-gray-700  font-semibold">
                             Password
                         </label>
-                        <input type="password" />
+                        <input type="password" className="text-black" />
                         <buton className="text-white bg-blue-500 p-2 rounded-xl border-none text-lg font-semibold cursor-pointer w-40 text-center self-center">
                             Update
                         </buton>

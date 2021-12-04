@@ -43,7 +43,7 @@ export default function SinglePostComponent() {
     }
     return (
         <>
-            <div className="mt-2 mr-6 ml-6 ">
+            <div className="mt-16 mr-6 ml-6 ">
                 {post.photo && (
                     <div className="w-full h-full  ">
                         <img
@@ -60,7 +60,7 @@ export default function SinglePostComponent() {
                         />
                     </div>
                 )}
-                <div className="flex justify-between mt-12">
+                <div className="flex justify-between">
                     <h1 className="text-2xl font-bold mt-4 postTitle ">
                         {post.title}
                     </h1>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './post.css';
-import cover from './../../assets/sunset.jfif';
+import cover from '../../assets/quotesToRemember.png';
 
 export default function Post({ post }) {
     const PF = "http://localhost:5000/images/";
