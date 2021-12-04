@@ -37,8 +37,8 @@ export default function Navbar() {
                     </div>
                 </div>
             </div>
-            <div className="hidden md:block  w-4/12">
-                <div className="flex items-center justify-center gap-3">
+            <div className=" w-4/12">
+                <div className="flex items-center justify-center gap-3 text-xs md:text-lg">
                     {user ? (
                         <>
                             <div className="w-10 h-10 ">
@@ -56,11 +56,10 @@ export default function Navbar() {
                             </div>
                             <div className="text-gray-500">
                                 <Link to="/register">REGISTER </Link>
-                                </div>
+                            </div>
                         </>
-                        
                     )}
-                    <BsSearch className="w-6 h-6 ml-3 text-gray-500 cursor-pointer" />
+                {/*<BsSearch className="w-6 h-6 ml-3 text-gray-500 cursor-pointer" />*/}
                 </div>
             </div>
         </div>

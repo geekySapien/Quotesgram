@@ -67,7 +67,6 @@ export default function RegisterComponent() {
                     </div>
                     {error && (
                         <span className="textStyle mt-6 " style={{ marginTop: "10px"}}>
-                           
                             Useranme already exisits!!
                             Try with a differnet
                             username.
