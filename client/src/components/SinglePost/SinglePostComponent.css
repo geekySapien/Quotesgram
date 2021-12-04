@@ -7,3 +7,11 @@
         serif;
     
 }
+
+.postDescriptionInput{
+    border:none
+}
+
+.postDescriptionInput:focus {
+    outline: none
+}

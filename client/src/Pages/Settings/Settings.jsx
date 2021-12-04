@@ -8,10 +8,10 @@ export default function Settings() {
             <div className="block md:flex">
                 <div className="md:w-9/12 p-12 textStyle">
                     <div className="flex items-center justify-between mb-4">
-                        <span className="md:text-xl text-red-400 font-bold cursor-pointer">
+                        <span className="text-md md:text-xl text-red-400 font-bold cursor-pointer">
                             Update your Account
                         </span>
-                        <span className="md:text-md text-red-500 font-bold cursor-pointer">
+                        <span className="text-sm md:text-md text-red-500 font-bold cursor-pointer">
                             Delete Account
                         </span>
                     </div>
