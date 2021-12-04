@@ -52,6 +52,14 @@ export default function SinglePostComponent() {
                         />
                     </div>
                 )}
+                {!post.photo && (
+                    <div className="w-full h-full  ">
+                        <img
+                            src={cover}
+                            className="w-full h-full rounded-lg object-cover"
+                        />
+                    </div>
+                )}
                 <div className="flex justify-between mt-12">
                     <h1 className="text-2xl font-bold mt-4 postTitle ">
                         {post.title}
@@ -59,7 +67,10 @@ export default function SinglePostComponent() {
                     {post.username === user?.username && (
                         <div className="flex gap-3 icons ">
                             <MdEdit className="mt-4 w-6 h-6 cursor-pointer text-green-600" />
-                            <MdDelete className="mt-4 w-6 h-6 cursor-pointer text-red-500" onClick={handleDelete}/>
+                            <MdDelete
+                                className="mt-4 w-6 h-6 cursor-pointer text-red-500"
+                                onClick={handleDelete}
+                            />
                         </div>
                     )}
                 </div>
