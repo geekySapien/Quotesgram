@@ -25,14 +25,13 @@ export default function SinglePostComponent() {
             //console.log(post.title);
             setTitle(res.data.post.title);
             setDesc(res.data.post.desc);
-
         };
 
         fetchPost();
     }, [path]);
     const PF = 'http://localhost:5000/images/';
     const { user } = useContext(Context);
-    
+
     const handleDelete = async (e) => {
         e.preventDefault();
         try {
@@ -49,17 +48,20 @@ export default function SinglePostComponent() {
         }
     };
 
-    const handleUpdate = async(e)=> {
+    const handleUpdate = async (e) => {
         e.preventDefault();
         console.log(title);
         console.log(desc);
         try {
-            await axios.put(`/api/posts/${post._id}` , {
-              username: user.username, title, desc ,
+            await axios.put(`/api/posts/${post._id}`, {
+                username: user.username,
+                title,
+                desc,
             });
-            window.location.reload();
+            setUpdateMode(false);
+            // window.location.reload();
         } catch (err) {
-            console.log("Error updasting the post");
+            console.log('Error updasting the post');
         }
     };
     console.log(user.username === post.username);
@@ -92,7 +94,7 @@ export default function SinglePostComponent() {
                         />
                     ) : (
                         <h1 className="text-2xl font-bold mt-4 postTitle ">
-                            {post.title}
+                            {title}
                         </h1>
                     )}
                     {post.username === user?.username && (
@@ -128,13 +130,16 @@ export default function SinglePostComponent() {
                         onChange={(e) => setDesc(e.target.value)}
                     />
                 ) : (
-                    <div className="postDescription leading-8 mt-5">
-                        {post.desc}
-                    </div>
+                    <div className="postDescription leading-8 mt-5">{desc}</div>
                 )}
-                <button className="mb-8 mt-4 text-white bg-blue-500 p-2 rounded-xl border-none text-lg font-semibold cursor-pointer w-40 text-center self-center" onClick={handleUpdate}>
-                    Update
-                </button>
+                {updateMode && (
+                    <button
+                        className="mb-8 mt-4 text-white bg-blue-500 p-2 rounded-xl border-none text-lg font-semibold cursor-pointer w-40 text-center self-center"
+                        onClick={handleUpdate}
+                    >
+                        Update
+                    </button>
+                )}
             </div>
         </>
     );

@@ -1,8 +1,10 @@
-import React from 'react';
+import {useContext} from 'react';
 import Sidebar from '../../components/SideBar/Sidebar';
 import { BiImageAdd } from 'react-icons/bi';
 import './Settings.css';
+import { Context } from './../../context/Context';
 export default function Settings() {
+    const { user } = useContext(Context);
     return (
         <>
             <div className="block md:flex">

@@ -45,7 +45,7 @@ export default function Navbar() {
                                 <img
                                     src="https://images.unsplash.com/photo-1584626063607-b385c9f727cf?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzJ8fHF1b3RlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
                                     alt=""
-                                    className="w-full h-full rounded-full object-cover "
+                                    className="w-full h-full rounded-full object-cover cursor-pointer"
                                 />
                             </div>
                         </>
