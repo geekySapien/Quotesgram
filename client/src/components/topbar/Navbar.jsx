@@ -4,6 +4,7 @@ import { BsInstagram, BsTwitter, BsPinterest, BsSearch } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import { Context } from '../../context/Context';
 export default function Navbar() {
+    const PF="http://localhost:5000/images/"
     const { user , dispatch} = useContext(Context);
 
     const handleLogout = async (e) => {
@@ -41,13 +42,17 @@ export default function Navbar() {
                 <div className="flex items-center justify-center gap-3 text-xs md:text-lg">
                     {user ? (
                         <>
-                            <div className="w-10 h-10 ">
-                                <img
-                                    src="https://images.unsplash.com/photo-1584626063607-b385c9f727cf?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzJ8fHF1b3RlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                                    alt=""
-                                    className="w-full h-full rounded-full object-cover cursor-pointer"
-                                />
-                            </div>
+                            
+                            <Link to="/setting">
+                                <div className="w-10 h-10 ">
+                                    <img
+                                        src={PF+user.profilePic}
+                                        alt=""
+                                        className="w-full h-full rounded-full object-cover cursor-pointer"
+                                    />
+                                </div>
+                            </Link>
+                           
                         </>
                     ) : (
                         <>
@@ -59,7 +64,7 @@ export default function Navbar() {
                             </div>
                         </>
                     )}
-                {/*<BsSearch className="w-6 h-6 ml-3 text-gray-500 cursor-pointer" />*/}
+                    {/*<BsSearch className="w-6 h-6 ml-3 text-gray-500 cursor-pointer" />*/}
                 </div>
             </div>
         </div>

@@ -1,10 +1,53 @@
-import {useContext} from 'react';
+import { useContext , useState} from 'react';
 import Sidebar from '../../components/SideBar/Sidebar';
 import { BiImageAdd } from 'react-icons/bi';
 import './Settings.css';
 import { Context } from './../../context/Context';
+import axios from 'axios';
+
 export default function Settings() {
-    const { user } = useContext(Context);
+      const PF = 'http://localhost:5000/images/';
+    const { user, dispatch } = useContext(Context);
+    const [file, setFile] = useState(null);
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
+    const [success, setSuccess] = useState(false);
+    const handleSubmit = async (e) => {
+        dispatch({ type: "UPDATE_START" });
+        console.log("Inside handleInput");
+        e.preventDefault();
+        const updatedUser = {
+            userId: user._id,
+            username,
+            email,
+            password,
+        };
+        console.log(updatedUser.userId === user._id)
+        if (file) {
+            const data = new FormData();
+            const filename = Date.now() + file.name;
+            data.append('name', filename);
+            data.append('file', file);
+            updatedUser.profilePic = filename;
+            try {
+                await axios.post('/api/upload', data);
+            } catch (err) {
+                console.log('Error uploading the profile picture');
+            }
+        }
+        try {
+           const res= await axios.put(`/api/users/${user._id}`, updatedUser);
+            console.log("Succesfully updated");
+            setSuccess(true);
+            dispatch({ type: 'UPDATE_SUCCESS' , payload:res.data.user});
+        } catch (err) {
+            console.log('Error updating your profile');
+
+            alert("Username already exists. Try with a different username");
+            dispatch({ type: 'UPDATE_FAILURE' });
+        }
+    };
     return (
         <>
             <div className="block md:flex">
@@ -17,7 +60,10 @@ export default function Settings() {
                             Delete Account
                         </span>
                     </div>
-                    <form className="flex flex-col gap-5">
+                    <form
+                        className="flex flex-col gap-5"
+                        onSubmit={handleSubmit}
+                    >
                         <label
                             for=""
                             className="text-lg text-gray-700  font-semibold"
@@ -27,7 +73,11 @@ export default function Settings() {
                         <div className="flex gap-2">
                             <div className=" w-12 h-12 border-radius-2 ">
                                 <img
-                                    src="https://images.unsplash.com/photo-1584626063607-b385c9f727cf?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzJ8fHF1b3RlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                                    src={
+                                        file
+                                            ? URL.createObjectURL(file)
+                                            : PF + user.profilePic
+                                    }
                                     className="object-cover rounded-md w-full h-full"
                                 />
                             </div>
@@ -39,6 +89,7 @@ export default function Settings() {
                                 id="fileInput"
                                 style={{ display: 'none' }}
                                 className="text-black"
+                                onChange={(e) => setFile(e.target.files[0])}
                             />
                         </div>
 
@@ -47,25 +98,42 @@ export default function Settings() {
                         </label>
                         <input
                             type="text"
-                            placeholder="riya"
+                            placeholder={user.username}
                             className="text-black"
+                            onChange={(e) => setUsername(e.target.value)}
+                            required
                         />
                         <label className="text-lg text-gray-700  font-semibold">
                             Email
                         </label>
                         <input
                             type="email"
-                            placeholder="riya1602@gmail.com"
+                            placeholder={user.email}
                             className="text-black"
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
                         />
                         <label className="text-lg text-gray-700  font-semibold">
                             Password
                         </label>
-                        <input type="password" className="text-black" />
-                        <buton className="text-white bg-blue-500 p-2 rounded-xl border-none text-lg font-semibold cursor-pointer w-40 text-center self-center">
+                        <input
+                            type="password"
+                            className="text-black"
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                        />
+                        <button
+                            className="text-white bg-blue-500 p-2 rounded-xl border-none text-lg font-semibold cursor-pointer w-40 text-center self-center"
+                            type="submit"
+                        >
                             Update
-                        </buton>
+                        </button>
                     </form>
+                    {success && (
+                        <span style={{ color: 'green', marginTop: '3px' }}>
+                            Profile has been updated
+                        </span>
+                    )}
                 </div>
                 <div className="md:w-3/12">
                     <Sidebar />
@@ -74,3 +142,4 @@ export default function Settings() {
         </>
     );
 }
+
